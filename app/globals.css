@@ -10,6 +10,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-brand-emerald: #10b981;
+  --color-brand-dark: #111827;
+  --color-brand-muted: #6b7280;
+  --color-brand-light: #f9fafb;
 }
 
 @media (prefers-color-scheme: dark) {
