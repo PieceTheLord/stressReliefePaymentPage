@@ -5,13 +5,32 @@ import { useState } from 'react';
 export function CheckoutActions() {
   const [loading, setLoading] = useState(false);
 
-  const handlePayment = () => {
+  const handlePayment = async () => {
     setLoading(true);
+    try {
+      const response = await fetch('/api/create-payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: 990,
+          currency: 'RUB',
+          description: 'Оплата электронной книги по борьбе со стрессом',
+        }),
+      });
 
-    setTimeout(() => {
+      if (!response.ok) {
+        throw new Error('Ошибка при создании платежа');
+      }
+
+      const data = await response.json();
+      window.location.href = data.confirmation.confirmation_url;
+    } catch (error) {
+      console.error('Ошибка при создании платежа:', error);
+    } finally {
       setLoading(false);
-      alert('Ваш платеж на сумму 990₽ обрабатывается. Спасибо!');
-    }, 1500);
+    }
   };
 
   return (
