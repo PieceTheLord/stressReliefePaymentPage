@@ -17,7 +17,7 @@ export function ProductDetails() {
         </li>
         <li className="flex items-start gap-3">
           <svg className="w-5 h-5 text-brand-emerald shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5"></path></svg>
-          <span className="text-sm font-medium text-brand-emerald">Бонус: эксклюзивный видео-мастер-класс</span>
+          <span className="text-sm font-medium">Мгновенный доступ к материалам после оплаты</span>
         </li>
       </ul>
 
