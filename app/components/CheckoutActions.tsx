@@ -1,31 +1,15 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export function CheckoutActions() {
   const [loading, setLoading] = useState(false);
-
+  const router = useRouter()
   const handlePayment = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/create-payment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          amount: 990,
-          currency: 'RUB',
-          description: 'Оплата электронной книги по борьбе со стрессом',
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Ошибка при создании платежа');
-      }
-
-      const data = await response.json();
-      window.location.href = data.confirmation.confirmation_url;
+      router.push("https://t.me/created_by_alexey?text=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D1%80%D1%81")
     } catch (error) {
       console.error('Ошибка при создании платежа:', error);
     } finally {
